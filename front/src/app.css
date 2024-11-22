@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Simply Rounded';
+	src: url('./lib/assets/fonts/simply-rounded/Simply-Rounded-Bold-Italic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Simply Rounded';
+	src: url('./lib/assets/fonts/simply-rounded/Simply-Rounded-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Simply Rounded';
+	src: url('./lib/assets/fonts/simply-rounded/Simply-Rounded-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Simply Rounded';
+	src: url('./lib/assets/fonts/simply-rounded/Simply-Rounded.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Garet';
+	src:
+		url('./lib/assets/fonts/garet/Garet-Book.ttf') format('truetype'),
+		url('./lib/assets/fonts/garet/Garet-Book.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Garet';
+	src:
+		url('./lib/assets/fonts/garet/Garet-Heavy.ttf') format('truetype'),
+		url('./lib/assets/fonts/garet/Garet-Heavy.otf') format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+body {
+	@apply bg-dark-blue text-white;
+	height: calc(100vh - 6rem);
+
+	h1,
+	h2,
+	h3 {
+		@apply font-title;
+	}
+
+	h1 {
+		@apply text-[4rem] uppercase;
+	}
+
+	h1::first-letter {
+		@apply text-8xl;
+	}
+}
+
+.header-link {
+	@apply relative inline-block after:absolute after:bottom-[-1px] after:left-0 after:h-px after:w-full after:origin-bottom-left after:scale-x-0 after:bg-white after:transition after:delay-200 after:ease-out after:content-[''] after:hover:origin-bottom-left after:hover:scale-x-100;
+}
+
+.header-link-svg {
+	@apply pr-6 transition-all duration-700 ease-out;
+
+	svg {
+		@apply h-8 w-8 after:content-none hover:text-dark-blue;
+	}
+}
+
+.button {
+	@apply m-2 inline-flex h-8 items-center rounded-[2.5rem] px-4 py-2 hover:cursor-pointer active:shadow-button;
+}
+
+.primary-button {
+	@apply border-none bg-pkng-orange shadow-button-primary;
+}
+
+.secondary-button {
+	@apply border border-solid border-white bg-transparent;
+}
+
+.right-halo {
+	@apply absolute -right-80 -top-24 w-[70rem];
+}
+
+.glass-card {
+	@apply rounded-[2.5rem] bg-gradient-to-tr from-white/10 to-dark-blue/40 shadow-lg backdrop-blur-lg backdrop-saturate-100;
+}
