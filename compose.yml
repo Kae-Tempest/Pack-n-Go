@@ -9,13 +9,13 @@ services:
   db:
     image: postgres:16-alpine
     command: postgres -c config_file=/etc/postgresql.conf
-    shm_size: '4gb'
+    shm_size: "4gb"
     ulimits:
       nofile:
         soft: 98304
         hard: 98304
     ports:
-      - '6932:5432'
+      - "6932:5432"
     volumes:
       - ./docker/postgresql/postgresql.conf:/etc/postgresql.conf
       - ./data/postgresql:/var/lib/postgresql/data
@@ -26,7 +26,7 @@ services:
       ALLOW_IP_RANGE: 0.0.0.0/0
     restart: always
     healthcheck:
-      test: [ 'CMD', 'pg_isready' ]
+      test: ["CMD", "pg_isready"]
       timeout: 5s
       retries: 300
   server:
@@ -37,9 +37,11 @@ services:
       - ./server:/usr/src/app
       - /usr/src/api/node_modules
     ports:
-      - '3000:3000'
+      - "3000:3000"
     environment:
       <<: *shared-env
+    env_file:
+      - path: ./server/.env
     depends_on:
       - db
   frontend:
